@@ -9,3 +9,4 @@
 #SetHandler application/x-httpd-php54
 #</FilesMatch>
 #AddHandler application/x-httpd-php54 .php
+# 3 - Need to add php.ini location
