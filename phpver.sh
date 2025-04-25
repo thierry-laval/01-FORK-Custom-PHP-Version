@@ -48,6 +48,28 @@ EOL
 echo "$BLOCK_TEMPLATE" > "$HTACCESS_FILE"
 echo -e "$TXT_OK Nouveau fichier $HTACCESS_FILE créé."
 
+# BETA | Ajout des Rewrite de Wordpress
+if [[ -f "wp-config.php" ]]; then
+    echo -e "$TXT_INFO Site Wordpress trouvé. Ajout des règles dans le .htaccess."
+
+    # Ajouter les règles
+    cat <<EOL >> "$HTACCESS_FILE"
+
+# BEGIN WordPress
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+# END WordPress
+EOL
+    echo -e "$TXT_OK Règles ajoutées dans le $HTACCESS_FILE."
+else
+    echo -e "$TXT_INFO Pas de Wordpress trouvé. Uniquement les règles PHP seront ajoutées."
+fi
+
 # Créer php.ini
 PHP_INI_FILE="php.ini"
 
