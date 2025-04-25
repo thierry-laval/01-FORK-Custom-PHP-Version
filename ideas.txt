@@ -1,0 +1,6 @@
+1 - Proposer des choix de CMS en plus, c'est-à-dire que cela va ajouter une version de PHP custom + choisir le CMS
+donc par exemple, pour Wordpress rajouter la version et les Rewrite pour WP et d'autres CMS
+
+2 - Ajout de personnalisations de variables supplémentaires à l'ajout, je pense que ça peut être une bonne idée.
+
+3 - Détection automatique du CMS et probablement ajuster certaines options PHP et le contenu du .htaccess ?
