@@ -48,7 +48,7 @@ EOL
 echo "$BLOCK_TEMPLATE" > "$HTACCESS_FILE"
 echo -e "$TXT_OK Nouveau fichier $HTACCESS_FILE créé."
 
-# BETA | Ajout des Rewrite de Wordpress
+# Ajout des Rewrite de Wordpress
 if [[ -f "wp-config.php" ]]; then
     echo -e "$TXT_INFO Site Wordpress trouvé. Ajout des règles dans le .htaccess."
 
